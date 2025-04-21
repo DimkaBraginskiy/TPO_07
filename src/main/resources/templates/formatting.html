@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Format</title>
+    <link rel="stylesheet" th:href="@{/stylesheets/style.css}">
+</head>
+<body>
+    <h1>Code Formatter</h1>
+
+    <form th:action="@{/format}" method="post">
+        <h3>Enter your code snippet here:</h3>
+        <textarea name="submittedCode"
+                  th:text="${submittedCode != null} ? ${submittedCode}"
+                  placeholder="Paste the code to format here"></textarea>
+        <br>
+        <button type="submit">Format</button>
+    </form>
+
+    <div th:if="${originalCode != null}" class="code-container">
+        <div class="code-box">
+            <h3>Original Code</h3>
+            <pre th:text="${originalCode}"></pre>
+        </div>
+        <div class="code-box">
+            <h3>Formatted Code</h3>
+            <pre th:text="${formattedCode}"></pre>
+        </div>
+    </div>
+</body>
+</html>
