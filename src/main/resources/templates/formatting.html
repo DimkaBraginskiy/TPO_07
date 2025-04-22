@@ -34,6 +34,11 @@
                 <input type="text" name="codeId" placeholder="Enter ID" required>
                 <button type="submit">Load</button>
             </form>
+
+            <div th:if="${successMessage != null}" class="success-message">
+                <p th:text="${successMessage}"></p>
+            </div>
+
         </div>
     </div>
 

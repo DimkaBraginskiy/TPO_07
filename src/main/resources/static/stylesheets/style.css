@@ -71,3 +71,13 @@ pre {
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+.success-message {
+    color: #62ff27;
+    margin-top: 10px;
+
+    background: #d7ffa0;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

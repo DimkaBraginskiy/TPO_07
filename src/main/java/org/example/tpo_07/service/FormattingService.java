@@ -16,7 +16,7 @@ public class FormattingService {
     public String format(String code) {
 
         if (code == null || code.trim().isEmpty()) {
-            return "";
+            throw new RuntimeException("Code formatting failed. Can not format an Empty field.");
         }
 
         try {

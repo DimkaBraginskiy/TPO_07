@@ -2,6 +2,7 @@ package org.example.tpo_07.serializable;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Period;
 
 public class CodeSnippet implements Serializable {
@@ -9,9 +10,9 @@ public class CodeSnippet implements Serializable {
     private String id;
     private String originalCode;
     private String formattedCode;
-    private LocalDate expirationDate;
+    private LocalDateTime expirationDate;
 
-    public CodeSnippet(String id, String originalCode, String formattedCode, LocalDate expirationDate) {
+    public CodeSnippet(String id, String originalCode, String formattedCode, LocalDateTime expirationDate) {
         this.id = id;
         this.originalCode = originalCode;
         this.formattedCode = formattedCode;
@@ -30,7 +31,7 @@ public class CodeSnippet implements Serializable {
         return formattedCode;
     }
 
-    public LocalDate getExpirationDate() {
+    public LocalDateTime getExpirationDate() {
         return expirationDate;
     }
 
@@ -46,7 +47,7 @@ public class CodeSnippet implements Serializable {
         this.formattedCode = formattedCode;
     }
 
-    public void setExpirationDate(LocalDate expirationDate) {
+    public void setExpirationDate(LocalDateTime expirationDate) {
         this.expirationDate = expirationDate;
     }
 }
