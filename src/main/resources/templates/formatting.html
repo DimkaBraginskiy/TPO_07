@@ -8,20 +8,46 @@
 <body>
     <h1>Code Formatter</h1>
 
-    <form th:action="@{/format}" method="post">
-        <h3>Enter your code snippet here:</h3>
-        <textarea name="submittedCode"
-                  th:text="${submittedCode != null} ? ${submittedCode}"
-                  placeholder="Paste the code to format here"></textarea>
-        <br>
-        <button type="submit">Format</button>
-    </form>
+    <div class="form-container">
+        <div class="form-section">
+            <h2>Save code</h2>
+            <form th:action="@{/format}" method="post">
+                <h3>Enter your code snippet here:</h3>
+                <textarea name="submittedCode"
+                          th:text="${submittedCode != null} ? ${submittedCode}"
+                          placeholder="Paste the code to format here"></textarea>
+                <input type="text" name="codeId" placeholder="Enter ID" required>
+                <input type="number"
+                       name="expDateSeconds"
+                       placeholder="Exp Date in Secs [10 - 777600 (90days)]"
+                       min="10"
+                       max="777600"
+                       required>
+                <button type="submit">Format</button>
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Load code</h2>
+            <form th:action="@{/load}" method="get">
+                <h3>Enter ID to retrieve a code snippet:</h3>
+                <input type="text" name="codeId" placeholder="Enter ID" required>
+                <button type="submit">Load</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div th:if="${errorMessage != null}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
 
     <div th:if="${originalCode != null}" class="code-container">
         <div class="code-box">
             <h3>Original Code</h3>
             <pre th:text="${originalCode}"></pre>
         </div>
+
         <div class="code-box">
             <h3>Formatted Code</h3>
             <pre th:text="${formattedCode}"></pre>
